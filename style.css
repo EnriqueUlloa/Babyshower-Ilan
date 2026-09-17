@@ -1360,7 +1360,7 @@ html, body {
     min-height: 100%;
     overflow-x: hidden;
     overflow-y: auto;
-    background-color: #faf8f5;
+    background-color: #fbfaf8;
     background-image: none;
     margin: 0;
     padding: 0;
@@ -1370,20 +1370,20 @@ html, body {
     width: 100%;
     min-height: 100vh;
     min-height: 100dvh;
-    padding: 0;
+    padding: 0 0 30px 0;
     margin: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     position: relative;
-    background-color: #faf8f5;
+    background-color: #fbfaf8;
   }
 
   .card-aspect-wrapper {
     width: 100vw;
     max-width: 540px;
-    aspect-ratio: 724 / 1570;
+    aspect-ratio: 724 / 1950;
     border-radius: 0;
     border: none;
     box-shadow: none;
@@ -1403,17 +1403,19 @@ html, body {
     border-radius: 0;
   }
 
-  /* Posicionamiento exacto de capas animadas y hotspots en lienzo móvil (1570h) */
+  /* Posicionamiento exacto de capas animadas en lienzo móvil extendido (1950h) */
   .layer-bunny-stage {
-    top: 11.15%;
-    height: 19.17%;
+    top: 8.974% !important;
+    left: 16.57% !important;
+    width: 66.85% !important;
+    height: 15.436% !important;
   }
 
   .layer-banner-stage {
-    top: 39.172% !important;
+    top: 27.436% !important;
     left: 7.597% !important;
     width: 84.945% !important;
-    height: 6.688% !important;
+    height: 5.385% !important;
   }
 
   /* Ocultar hotspots planos de escritorio en móviles */
@@ -1432,10 +1434,10 @@ html, body {
     display: flex !important;
     flex-direction: column;
     position: absolute;
-    top: 48.2%;
+    top: 34.2%;
     left: 6%;
     width: 88%;
-    gap: 13px;
+    gap: 12px;
     z-index: 35;
     box-sizing: border-box;
   }
