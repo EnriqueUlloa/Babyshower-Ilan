@@ -190,82 +190,139 @@
         <span class="hotspot-indicator rsvp-pulse-ind">💌 Confirmar aquí</span>
       </button>
 
-      <!-- 6. MOBILE INTERACTIVE AFFORDANCE CARDS -->
+      <!-- 6. MOBILE INTERACTIVE AFFORDANCE CARDS (Bespoke to Invitation Design) -->
       <div class="mobile-interactive-cards" id="mobile-cards">
         
-        <!-- Tarjeta Fecha y Hora -->
+        <!-- Frase poética introductoria idéntica a la invitación original -->
+        <div class="mobile-intro-banner">
+          <p class="intro-quote-text">Ven a celebrar con nosotros la dulce espera de este pedacito de cielo:</p>
+          <div class="ornament-divider">
+            <span class="ornament-line"></span>
+            <span class="ornament-heart">💙</span>
+            <span class="ornament-line"></span>
+          </div>
+        </div>
+
+        <!-- Tarjeta 1: Fecha y Hora -->
         <div class="affordance-card card-datetime">
-          <div class="card-header-line">
-            <span class="card-icon">📅</span>
-            <div class="card-titles">
-              <h3 class="card-main-title">Fecha y Hora</h3>
-              <p class="card-main-sub">Sábado 03 de Octubre de 2026 · 2:00 pm</p>
+          <div class="card-inner-frame">
+            <div class="card-header-line">
+              <div class="card-icon-badge">
+                <svg viewBox="0 0 24 24" class="svg-card-icon" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+              </div>
+              <div class="card-titles">
+                <h3 class="card-main-title">Fecha y Hora</h3>
+                <div class="card-detail-rows">
+                  <p class="detail-row"><span class="row-label">Fecha:</span> sábado 03 octubre 2026</p>
+                  <p class="detail-row"><span class="row-label">Hora:</span> 2:00 pm</p>
+                </div>
+              </div>
             </div>
+            <button class="card-btn-action btn-calendar-action" id="mobile-btn-calendar" aria-label="Agregar evento a Google Calendar o Apple Calendar">
+              <span class="btn-icon">📅</span>
+              <span class="btn-label">Agregar a Google Calendar / Apple Calendar</span>
+            </button>
           </div>
-          <button class="card-btn-action btn-calendar-action" id="mobile-btn-calendar" aria-label="Agregar evento a Google Calendar o Apple Calendar">
-            <span>📅 Agregar a Google Calendar / Apple Calendar</span>
-          </button>
         </div>
 
-        <!-- Tarjeta Lugar -->
+        <!-- Tarjeta 2: Lugar -->
         <div class="affordance-card card-location">
-          <div class="card-header-line">
-            <span class="card-icon">📍</span>
-            <div class="card-titles">
-              <h3 class="card-main-title">Salón los guisos</h3>
-              <p class="card-main-sub">21 sur, #120, Colonia las Flores, Tehuacán, Pue.</p>
+          <div class="card-inner-frame">
+            <div class="card-header-line">
+              <div class="card-icon-badge badge-location">
+                <svg viewBox="0 0 24 24" class="svg-card-icon" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+              </div>
+              <div class="card-titles">
+                <h3 class="card-main-title">Lugar de Celebración</h3>
+                <p class="detail-row"><span class="row-label">Lugar:</span> 21 sur, #120, Colonia las Flores, Tehuacán, Pue.</p>
+                <div class="venue-pill">Salón los guisos</div>
+              </div>
             </div>
+            <a 
+              href="https://www.google.com/maps/search/?api=1&query=21+sur+120+Colonia+las+Flores+Tehuacan+Puebla+Salon+los+guisos" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="card-btn-action btn-maps-action"
+              id="mobile-btn-maps"
+              aria-label="Abrir cómo llegar en Google Maps o Waze"
+            >
+              <span class="btn-icon">📍</span>
+              <span class="btn-label">Cómo llegar (Google Maps / Waze)</span>
+            </a>
           </div>
-          <a 
-            href="https://www.google.com/maps/search/?api=1&query=21+sur+120+Colonia+las+Flores+Tehuacan+Puebla+Salon+los+guisos" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            class="card-btn-action btn-maps-action"
-            id="mobile-btn-maps"
-            aria-label="Abrir cómo llegar en Google Maps o Waze"
-          >
-            <span>📍 Cómo llegar (Google Maps / Waze)</span>
-          </a>
         </div>
 
-        <!-- Tarjeta Mesa de Regalos -->
+        <!-- Tarjeta 3: Mesa de Regalos -->
         <div class="affordance-card card-registry">
-          <div class="card-header-line">
-            <span class="card-icon">🎁</span>
-            <div class="card-titles">
-              <h3 class="card-main-title">Mesa de Regalos</h3>
-              <p class="card-main-sub">¿No sabes qué regalarnos? Aquí te dejamos algunas ideas</p>
+          <div class="card-inner-frame">
+            <div class="card-header-line">
+              <div class="card-icon-badge badge-registry">
+                <svg viewBox="0 0 24 24" class="svg-card-icon" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 12 20 22 4 22 4 12"></polyline>
+                  <rect x="2" y="7" width="20" height="5"></rect>
+                  <line x1="12" y1="22" x2="12" y2="7"></line>
+                  <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path>
+                  <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path>
+                </svg>
+              </div>
+              <div class="card-titles">
+                <h3 class="card-main-title">Mesa de regalos</h3>
+                <p class="card-subtitle-italic">¿No sabes qué regalarnos? Aquí te dejamos algunas ideas</p>
+              </div>
             </div>
+            <div class="registry-brand-box">
+              <span class="liverpool-logo-text">Liverpool</span>
+              <span class="liverpool-code-text">Código de mesa: <strong>60041743</strong></span>
+            </div>
+            <a 
+              href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/60041743" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="card-btn-action btn-registry-action"
+              id="mobile-btn-registry"
+              aria-label="Ver mesa de regalos en Liverpool"
+            >
+              <span class="btn-icon">🎁</span>
+              <span class="btn-label">Ver Mesa en Liverpool ›</span>
+            </a>
           </div>
-          <div class="registry-code-badge">
-            <span class="badge-brand">Liverpool</span>
-            <span class="badge-code">Código: <strong>60041743</strong></span>
-          </div>
-          <a 
-            href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/60041743" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            class="card-btn-action btn-registry-action"
-            id="mobile-btn-registry"
-            aria-label="Ver mesa de regalos en Liverpool"
-          >
-            <span>🎁 Ver Mesa en Liverpool ›</span>
-          </a>
         </div>
 
-        <!-- Tarjeta Confirmación de Asistencia -->
+        <!-- Tarjeta 4: Confirmación de Asistencia -->
         <div class="affordance-card card-rsvp">
-          <div class="card-header-line">
-            <span class="card-icon">💌</span>
-            <div class="card-titles">
-              <h3 class="card-main-title">Confirmación de Asistencia</h3>
-              <p class="card-main-sub">Tu presencia y cariño harán este día aún más especial.<br>Por favor confirma antes del <strong>25/09/26</strong>.</p>
+          <div class="card-inner-frame">
+            <div class="card-header-line">
+              <div class="card-icon-badge badge-rsvp">
+                <svg viewBox="0 0 24 24" class="svg-card-icon" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </div>
+              <div class="card-titles">
+                <h3 class="card-main-title">Confirmación de Asistencia</h3>
+                <p class="rsvp-body-text">Tu presencia y cariño harán este día aún más especial.</p>
+                <p class="rsvp-deadline-text">Por favor confirma tu asistencia antes del <strong>25/09/26</strong>.</p>
+              </div>
             </div>
+            <button class="card-btn-action btn-rsvp-action" id="mobile-btn-rsvp" aria-label="Confirmar asistencia por WhatsApp">
+              <span class="btn-icon">💌</span>
+              <span class="btn-label">Confirmar por WhatsApp</span>
+            </button>
+            <div class="ornament-divider-mini">
+              <span class="ornament-line"></span>
+              <span class="ornament-heart">💙</span>
+              <span class="ornament-line"></span>
+            </div>
+            <div class="esperamos-script">¡Te esperamos!</div>
           </div>
-          <button class="card-btn-action btn-rsvp-action" id="mobile-btn-rsvp" aria-label="Confirmar asistencia por WhatsApp">
-            <span>💌 Confirmar por WhatsApp</span>
-          </button>
-          <div class="esperamos-script">¡Te esperamos!</div>
         </div>
 
       </div> <!-- /mobile-interactive-cards -->
