@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Baby Shower de Ilán | Elena y Enrique</title>
+  <meta name="description" content="¡La familia crece! Elena y Enrique te invitan al baby shower de su amado Ilán. Sábado 03 de octubre de 2026, 2:00 pm." />
+  
+  <!-- OpenGraph Meta -->
+  <meta property="og:title" content="Baby Shower de Ilán 🐰💙" />
+  <meta property="og:description" content="Ven a celebrar con nosotros la dulce espera de este pedacito de cielo: Ilán. Sábado 03 de octubre, 2:00 pm." />
+  <meta property="og:image" content="assets/invitacion_base_hd.png" />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts: Outfit, Playfair Display, Great Vibes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Floating Sparkles and Golden Dust Canvas -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- Envelope Opening Overlay -->
+  <div id="envelope-overlay" class="envelope-modal">
+    <div class="envelope-wrapper">
+      <div class="envelope" id="envelope" role="button" tabindex="0" aria-label="Abrir sobre de invitación">
+        <div class="envelope-back"></div>
+        <div class="invitation-peek">
+          <img src="assets/layer_bunny.png" alt="Conejito Ilán" class="peek-rabbit-img" />
+          <p class="peek-title">Baby Shower Ilán</p>
+          <span class="peek-date">03 Octubre 2026</span>
+        </div>
+        <div class="envelope-left"></div>
+        <div class="envelope-right"></div>
+        <div class="envelope-bottom"></div>
+        <div class="envelope-flap" id="envelope-flap"></div>
+        
+        <!-- Golden Wax Seal -->
+        <div class="wax-seal" id="wax-seal">
+          <div class="seal-inner">
+            <span class="seal-emoji">🐰</span>
+            <span class="seal-text">ABRIR</span>
+          </div>
+          <div class="seal-pulse"></div>
+        </div>
+      </div>
+
+      <div class="envelope-prompt">
+        <p class="prompt-text">Una dulce noticia te espera...</p>
+        <button id="open-btn" class="btn-open-envelope">
+          <span>✨ Toca el sello para abrir ✨</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN VIEWPORT: INVITATION SHOWCASE -->
+  <div class="invitation-viewport">
+    
+    <!-- THE EXACT INVITATION CARD -->
+    <div class="card-aspect-wrapper" id="invitation-card">
+      
+      <!-- Base exact artwork -->
+      <img 
+        src="assets/invitacion_base_hd.png" 
+        alt="Invitación Baby Shower Ilán" 
+        class="base-artwork-img"
+        id="base-img"
+      />
+
+      <!-- ANIMATED OVERLAYS (PIXEL-PERFECT POSITIONED) -->
+      
+      <!-- 1. Top Garland with gentle breeze sway -->
+      <div class="anim-layer layer-top-garland">
+        <img src="assets/layer_top.png" alt="" class="top-garland-motion" />
+        <!-- Floating petals falling down -->
+        <div class="floating-petal p1">🌸</div>
+        <div class="floating-petal p2">🍃</div>
+        <div class="floating-petal p3">✨</div>
+        <div class="floating-petal p4">🌸</div>
+      </div>
+
+      <!-- 2. Peter Rabbit & Floral Bouquet (Living breathing & floating motion) -->
+      <div class="anim-layer layer-bunny-stage" id="bunny-stage">
+        <div class="bunny-ambient-glow"></div>
+        <img src="assets/layer_bunny.png" alt="Conejito animado" class="bunny-motion" id="bunny-img" />
+        <!-- Micro sparkles orbiting bunny -->
+        <span class="bunny-sparkle bs-1">✨</span>
+        <span class="bunny-sparkle bs-2">💙</span>
+        <span class="bunny-sparkle bs-3">✨</span>
+      </div>
+
+      <!-- 3. Ribbon Banner "Ilán" with olive foliage & shimmer -->
+      <div class="anim-layer layer-banner-stage" id="banner-stage">
+        <!-- Foliage leaves rustle on left and right -->
+        <img src="assets/layer_leaf_left.png" alt="" class="leaf-left-rustle" />
+        <img src="assets/layer_leaf_right.png" alt="" class="leaf-right-rustle" />
+        
+        <!-- Main Ribbon with light gleam -->
+        <div class="ribbon-inner-wrap">
+          <img src="assets/layer_banner.png" alt="Ilán listón" class="banner-motion" />
+          <div class="banner-gleam-beam"></div>
+        </div>
+
+        <!-- Beating hearts on ribbon tips -->
+        <span class="heart-pulse hp-left">💙</span>
+        <span class="heart-pulse hp-right">💙</span>
+      </div>
+
+      <!-- 4. Subtle Shimmer across "¡Te esperamos!" -->
+      <div class="anim-layer layer-esperamos-shimmer">
+        <div class="shimmer-sweep"></div>
+      </div>
+
+      <!-- 5. INTERACTIVE HOTSPOTS -->
+
+      <!-- Hotspot: Fecha y Hora (opens Calendar modal) -->
+      <button 
+        class="hotspot-btn hotspot-datetime" 
+        id="hotspot-datetime" 
+        aria-label="Agendar fecha y hora en calendario"
+      >
+        <span class="hotspot-indicator">📅 Agendar</span>
+      </button>
+
+      <!-- Hotspot: Lugar / Salón los guisos (opens Google Maps) -->
+      <a 
+        href="https://www.google.com/maps/search/?api=1&query=21+sur+120+Colonia+las+Flores+Tehuacan+Puebla+Salon+los+guisos" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="hotspot-btn hotspot-location" 
+        id="hotspot-location" 
+        aria-label="Abrir dirección en Google Maps"
+      >
+        <span class="hotspot-indicator">📍 Cómo llegar</span>
+      </a>
+
+      <!-- Hotspot: Mesa de Regalos text (redirects to Liverpool) -->
+      <a 
+        href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/60041743" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="hotspot-btn hotspot-registry" 
+        id="hotspot-registry" 
+        aria-label="Abrir Mesa de Regalos en Liverpool"
+      >
+        <span class="hotspot-indicator">🎁 Ir a Liverpool</span>
+      </a>
+
+      <!-- Hotspot: QR Code (expands to show large QR) -->
+      <button 
+        class="hotspot-btn hotspot-qr" 
+        id="hotspot-qr" 
+        aria-label="Ampliar código QR"
+      >
+        <div class="qr-scanner-line"></div>
+        <span class="hotspot-qr-badge">🔍 Toca para ampliar</span>
+      </button>
+
+      <!-- Hotspot: Confirmación de Asistencia (opens RSVP modal) -->
+      <button 
+        class="hotspot-btn hotspot-rsvp" 
+        id="hotspot-rsvp" 
+        aria-label="Confirmar asistencia al Baby Shower"
+      >
+        <span class="hotspot-indicator rsvp-pulse-ind">💌 Confirmar aquí</span>
+      </button>
+
+    </div> <!-- /card-aspect-wrapper -->
+
+    <!-- FLOATING DISCREET MUSIC CONTROL BUTTON -->
+    <button id="music-control-btn" class="music-floating-btn" aria-label="Reproducir o pausar música" title="Música">
+      <span class="music-btn-icon">🎵</span>
+      <div class="music-equalizer">
+        <span></span><span></span><span></span>
+      </div>
+    </button>
+
+    <!-- Audio Element for Babyshower Music -->
+    <audio id="bg-music" src="assets/babyshower-music.mp3" preload="auto" loop></audio>
+
+  </div> <!-- /invitation-viewport -->
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toast" class="toast-notification" role="status" aria-live="polite">
+    <span class="toast-icon">✨</span>
+    <span id="toast-message">Código copiado con éxito</span>
+  </div>
+
+  <!-- MODAL: QR ZOOM & LIVERPOOL -->
+  <div id="qr-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-card">
+      <button class="modal-close" id="close-qr-modal" aria-label="Cerrar modal">&times;</button>
+      <h3 class="modal-title">Mesa de Regalos Liverpool</h3>
+      <p class="modal-subtitle">Escanea el código o accede directamente a la mesa</p>
+
+      <div class="modal-qr-box">
+        <img src="assets/qr_code_clean.png" alt="Código QR Liverpool Mesa 60041743" class="qr-zoom-img" />
+      </div>
+
+      <div class="modal-code-display">
+        <span class="code-lbl">Código de mesa:</span>
+        <strong class="code-val" id="modal-mesa-code">60041743</strong>
+      </div>
+
+      <div class="modal-btns-row">
+        <button id="modal-copy-btn" class="modal-btn btn-gold">
+          📋 Copiar Código
+        </button>
+        <a 
+          href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/60041743" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="modal-btn btn-blue"
+        >
+          Ir a Liverpool ↗
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: RSVP FORM -->
+  <div id="rsvp-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-card">
+      <button class="modal-close" id="close-rsvp-modal" aria-label="Cerrar modal">&times;</button>
+      
+      <div class="rsvp-header">
+        <span class="rsvp-bunny-icon">🐰💙</span>
+        <h3 class="modal-title">Confirmar Asistencia</h3>
+        <p class="modal-subtitle">Baby Shower de Ilán · Sábado 03 de Octubre de 2026, 2:00 pm</p>
+      </div>
+
+      <form id="rsvp-form" class="rsvp-form">
+        <div class="form-group">
+          <label>¿Podrás acompañarnos? <span class="req">*</span></label>
+          <div class="radio-group">
+            <label class="radio-card selected" id="choice-yes">
+              <input type="radio" name="attending" value="si" checked />
+              <span class="radio-dot"></span>
+              <span class="radio-label-text">¡Sí, confirmo mi asistencia! 🎉</span>
+            </label>
+            <label class="radio-card" id="choice-no">
+              <input type="radio" name="attending" value="no" />
+              <span class="radio-dot"></span>
+              <span class="radio-label-text">Lamentablemente no podré 🥺</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="guest-name">Tu nombre (opcional):</label>
+          <input type="text" id="guest-name" placeholder="Ej. Familia García" />
+        </div>
+
+        <button type="submit" class="modal-btn btn-primary-submit btn-wa-submit">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.976.532 1.944.825 3.149.825 3.182 0 5.767-2.587 5.767-5.766.001-3.18-2.585-5.767-5.767-5.767zm7.653 5.767c0 4.22-3.432 7.653-7.653 7.653-1.344 0-2.607-.35-3.707-.963l-4.108 1.08 1.098-4.015c-.71-1.162-1.12-2.529-1.12-3.755 0-4.22 3.432-7.653 7.653-7.653s7.837 3.433 7.837 7.653z"/>
+          </svg>
+          <span>Enviar Confirmación</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: CALENDAR -->
+  <div id="calendar-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-card">
+      <button class="modal-close" id="close-calendar-modal" aria-label="Cerrar modal">&times;</button>
+      <h3 class="modal-title">Agendar en tu Calendario</h3>
+      <p class="modal-subtitle">Baby Shower de Ilán · Sábado 03 de Octubre de 2026, 2:00 pm</p>
+
+      <div class="calendar-buttons-grid">
+        <a id="cal-google" href="#" target="_blank" rel="noopener noreferrer" class="cal-btn btn-google">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+            <path d="M12 5c1.54 0 2.94.57 4.03 1.51l3.03-3.03C17.21 1.7 14.77 1 12 1 7.42 1 3.53 3.61 1.63 7.37l3.68 2.85C6.18 7.37 8.84 5 12 5zm0 14c-3.16 0-5.82-2.37-6.69-5.22L1.63 16.63C3.53 20.39 7.42 23 12 23c2.7 0 5.16-.94 7.02-2.54l-3.4-2.64C14.71 18.49 13.43 19 12 19zm11-7c0-.7-.07-1.37-.19-2H12v4.18h6.29c-.28 1.4-1.09 2.59-2.3 3.39l3.4 2.64C21.36 17.39 23 14.93 23 12z"/>
+          </svg>
+          <span>Google Calendar</span>
+        </a>
+
+        <button id="cal-ics" class="cal-btn btn-apple">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.89c.63-.78 1.06-1.85.95-2.92-.92.04-2.02.62-2.67 1.39-.58.67-1.08 1.76-.94 2.81 1.03.08 2.03-.5 2.66-1.28z"/>
+          </svg>
+          <span>Apple Calendar / Outlook (.ics)</span>
+        </button>
+      </div>
+
+      <!-- Live countdown inside calendar modal -->
+      <div class="modal-countdown">
+        <p class="cd-caption">Faltan para este gran día:</p>
+        <div class="cd-row">
+          <div class="cd-item"><span id="cd-days">--</span><label>Días</label></div>
+          <span class="cd-colon">:</span>
+          <div class="cd-item"><span id="cd-hours">--</span><label>Horas</label></div>
+          <span class="cd-colon">:</span>
+          <div class="cd-item"><span id="cd-minutes">--</span><label>Min</label></div>
+          <span class="cd-colon">:</span>
+          <div class="cd-item"><span id="cd-seconds">--</span><label>Seg</label></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: SUCCESS -->
+  <div id="success-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-card">
+      <div class="success-icon-large">🎉💙</div>
+      <h3 class="modal-title">¡Muchas Gracias!</h3>
+      <p class="modal-subtitle" id="success-user-text">Tu confirmación ha sido recibida con mucho amor.</p>
+      <p class="success-signature">Elena, Enrique y el bebé Ilán</p>
+      <button id="close-success-btn" class="modal-btn btn-blue" style="margin-top: 18px;">
+        Cerrar
+      </button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
