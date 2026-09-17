@@ -354,6 +354,24 @@ function initHotspotsAndDock() {
   if (dockRsvpBtn) {
     dockRsvpBtn.addEventListener('click', () => openModal('rsvp-modal'));
   }
+
+  // Mobile Affordance Cards: Event Listeners
+  const mobileBtnCalendar = document.getElementById('mobile-btn-calendar');
+  if (mobileBtnCalendar) {
+    mobileBtnCalendar.addEventListener('click', () => openModal('calendar-modal'));
+  }
+
+  const mobileBtnRsvp = document.getElementById('mobile-btn-rsvp');
+  if (mobileBtnRsvp) {
+    mobileBtnRsvp.addEventListener('click', () => openModal('rsvp-modal'));
+  }
+
+  const mobileBtnRegistry = document.getElementById('mobile-btn-registry');
+  if (mobileBtnRegistry) {
+    mobileBtnRegistry.addEventListener('click', () => {
+      showToast("Abriendo Mesa de Regalos Liverpool... 🎁");
+    });
+  }
 }
 
 /* =========================================================

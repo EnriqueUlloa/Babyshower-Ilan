@@ -190,6 +190,86 @@
         <span class="hotspot-indicator rsvp-pulse-ind">💌 Confirmar aquí</span>
       </button>
 
+      <!-- 6. MOBILE INTERACTIVE AFFORDANCE CARDS -->
+      <div class="mobile-interactive-cards" id="mobile-cards">
+        
+        <!-- Tarjeta Fecha y Hora -->
+        <div class="affordance-card card-datetime">
+          <div class="card-header-line">
+            <span class="card-icon">📅</span>
+            <div class="card-titles">
+              <h3 class="card-main-title">Fecha y Hora</h3>
+              <p class="card-main-sub">Sábado 03 de Octubre de 2026 · 2:00 pm</p>
+            </div>
+          </div>
+          <button class="card-btn-action btn-calendar-action" id="mobile-btn-calendar" aria-label="Agregar evento a Google Calendar o Apple Calendar">
+            <span>📅 Agregar a Google Calendar / Apple Calendar</span>
+          </button>
+        </div>
+
+        <!-- Tarjeta Lugar -->
+        <div class="affordance-card card-location">
+          <div class="card-header-line">
+            <span class="card-icon">📍</span>
+            <div class="card-titles">
+              <h3 class="card-main-title">Salón los guisos</h3>
+              <p class="card-main-sub">21 sur, #120, Colonia las Flores, Tehuacán, Pue.</p>
+            </div>
+          </div>
+          <a 
+            href="https://www.google.com/maps/search/?api=1&query=21+sur+120+Colonia+las+Flores+Tehuacan+Puebla+Salon+los+guisos" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="card-btn-action btn-maps-action"
+            id="mobile-btn-maps"
+            aria-label="Abrir cómo llegar en Google Maps o Waze"
+          >
+            <span>📍 Cómo llegar (Google Maps / Waze)</span>
+          </a>
+        </div>
+
+        <!-- Tarjeta Mesa de Regalos -->
+        <div class="affordance-card card-registry">
+          <div class="card-header-line">
+            <span class="card-icon">🎁</span>
+            <div class="card-titles">
+              <h3 class="card-main-title">Mesa de Regalos</h3>
+              <p class="card-main-sub">¿No sabes qué regalarnos? Aquí te dejamos algunas ideas</p>
+            </div>
+          </div>
+          <div class="registry-code-badge">
+            <span class="badge-brand">Liverpool</span>
+            <span class="badge-code">Código: <strong>60041743</strong></span>
+          </div>
+          <a 
+            href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/60041743" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="card-btn-action btn-registry-action"
+            id="mobile-btn-registry"
+            aria-label="Ver mesa de regalos en Liverpool"
+          >
+            <span>🎁 Ver Mesa en Liverpool ›</span>
+          </a>
+        </div>
+
+        <!-- Tarjeta Confirmación de Asistencia -->
+        <div class="affordance-card card-rsvp">
+          <div class="card-header-line">
+            <span class="card-icon">💌</span>
+            <div class="card-titles">
+              <h3 class="card-main-title">Confirmación de Asistencia</h3>
+              <p class="card-main-sub">Tu presencia y cariño harán este día aún más especial.<br>Por favor confirma antes del <strong>25/09/26</strong>.</p>
+            </div>
+          </div>
+          <button class="card-btn-action btn-rsvp-action" id="mobile-btn-rsvp" aria-label="Confirmar asistencia por WhatsApp">
+            <span>💌 Confirmar por WhatsApp</span>
+          </button>
+          <div class="esperamos-script">¡Te esperamos!</div>
+        </div>
+
+      </div> <!-- /mobile-interactive-cards -->
+
     </div> <!-- /card-aspect-wrapper -->
 
     <!-- FLOATING DISCREET MUSIC CONTROL BUTTON -->
