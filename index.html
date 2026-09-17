@@ -96,16 +96,20 @@
         <div class="floating-petal p4">🌸</div>
       </div>
 
-      <!-- 2. Peter Rabbit ambient aura & micro sparkles -->
+      <!-- 2. Peter Rabbit living breathing & floating motion -->
       <div class="anim-layer layer-bunny-stage" id="bunny-stage">
         <div class="bunny-ambient-glow"></div>
+        <img src="assets/layer_bunny.png" alt="Conejito Peter Rabbit" class="bunny-motion" id="bunny-img" />
         <span class="bunny-sparkle bs-1">✨</span>
         <span class="bunny-sparkle bs-3">✨</span>
       </div>
 
-      <!-- 3. Ribbon Banner subtle gleam beam -->
+      <!-- 3. Ribbon Banner with "Ilán" motion, olive foliage rustle & gleam beam -->
       <div class="anim-layer layer-banner-stage" id="banner-stage">
+        <img src="assets/layer_leaf_left.png" alt="" class="leaf-left-rustle" />
+        <img src="assets/layer_leaf_right.png" alt="" class="leaf-right-rustle" />
         <div class="ribbon-inner-wrap">
+          <img src="assets/layer_banner.png" alt="Ilán listón" class="banner-motion" />
           <div class="banner-gleam-beam"></div>
         </div>
       </div>
@@ -150,7 +154,7 @@
         <span class="hotspot-indicator">🎁 Ir a Liverpool</span>
       </a>
 
-      <!-- Hotspot: QR Code (expands to show large QR) -->
+      <!-- Hotspot: QR Code (Desktop: allows expanding; Mobile: hidden) -->
       <button 
         class="hotspot-btn hotspot-qr" 
         id="hotspot-qr" 
@@ -159,6 +163,20 @@
         <div class="qr-scanner-line"></div>
         <span class="hotspot-qr-badge">🔍 Toca para ampliar</span>
       </button>
+
+      <!-- Botón móvil: Reemplaza el QR para redirigir directamente a la mesa de regalos -->
+      <a 
+        href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/60041743" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="mobile-registry-cta" 
+        id="mobile-registry-cta" 
+        aria-label="Abrir Mesa de Regalos en Liverpool"
+      >
+        <span class="mcta-icon">🎁</span>
+        <span class="mcta-title">Ver Mesa</span>
+        <span class="mcta-brand">Liverpool ›</span>
+      </a>
 
       <!-- Hotspot: Confirmación de Asistencia (opens RSVP modal) -->
       <button 

@@ -432,20 +432,20 @@ html, body {
   height: 100%;
   object-fit: contain;
   display: block;
-  filter: drop-shadow(0 6px 14px rgba(25, 45, 74, 0.12));
+  filter: drop-shadow(0 6px 14px rgba(25, 45, 74, 0.1));
   animation: bunnyFloat 4.2s ease-in-out infinite alternate;
-  transition: transform 0.25s ease-out;
+  transform-origin: center center;
 }
 
 @keyframes bunnyFloat {
   0% {
-    transform: translateY(0px) scale(1);
+    transform: scale(1) translateY(0px);
   }
   50% {
-    transform: translateY(-5px) scale(1.012);
+    transform: scale(1.02) translateY(-3px);
   }
   100% {
-    transform: translateY(-1px) scale(1);
+    transform: scale(1) translateY(0px);
   }
 }
 
@@ -517,12 +517,13 @@ html, body {
   object-fit: contain;
   display: block;
   animation: ribbonWave 4.5s ease-in-out infinite alternate;
+  transform-origin: center center;
 }
 
 @keyframes ribbonWave {
-  0% { transform: translateY(0) scaleY(1); }
-  50% { transform: translateY(-2px) scaleY(1.01); }
-  100% { transform: translateY(1px) scaleY(0.995); }
+  0% { transform: scale(1) translateY(0); }
+  50% { transform: scale(1.018) translateY(-2px); }
+  100% { transform: scale(1) translateY(0); }
 }
 
 /* Shimmer gleam beam running across "Ilán" */
@@ -737,6 +738,62 @@ html, body {
 
 .hotspot-qr:hover .hotspot-qr-badge {
   opacity: 1;
+}
+
+/* Mobile Registry Button (replaces QR on mobile screens) */
+.mobile-registry-cta {
+  display: none;
+  position: absolute;
+  top: 76.2%;
+  left: 60%;
+  width: 18.5%;
+  height: 12.5%;
+  background: linear-gradient(145deg, #ebf4fb 0%, #d8e9f7 100%);
+  border: 1.5px solid #8ab8e0;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(85, 139, 190, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  z-index: 35;
+  transition: all 0.25s ease;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.mobile-registry-cta:hover,
+.mobile-registry-cta:active {
+  transform: scale(0.96);
+  background: linear-gradient(145deg, #d8eaf8 0%, #c5def4 100%);
+  box-shadow: 0 2px 8px rgba(85, 139, 190, 0.35);
+}
+
+.mcta-icon {
+  font-size: 1.35rem;
+  line-height: 1;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.mcta-title {
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: #1e3a5f;
+  margin-top: 3px;
+  letter-spacing: 0.3px;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.mcta-brand {
+  font-family: var(--font-sans);
+  font-size: 0.52rem;
+  font-weight: 600;
+  color: #4a7aa8;
+  letter-spacing: 0.3px;
+  line-height: 1;
+  margin-top: 1px;
 }
 
 /* RSVP Hotspot */
@@ -1290,18 +1347,20 @@ html, body {
     overflow-y: auto;
     background-color: #faf8f5;
     background-image: none;
+    margin: 0;
+    padding: 0;
   }
 
   .invitation-viewport {
     width: 100%;
     min-height: 100vh;
     min-height: 100dvh;
-    padding: 10px 0 24px 0;
+    padding: 0 0 24px 0;
     margin: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     position: relative;
     background-color: #faf8f5;
   }
@@ -1315,6 +1374,7 @@ html, body {
     box-shadow: none;
     background: transparent;
     overflow: visible;
+    margin-top: 0;
   }
 
   .base-artwork-img {
@@ -1322,6 +1382,16 @@ html, body {
     height: 100%;
     object-fit: contain;
     border-radius: 0;
+  }
+
+  /* Ocultar QR en móviles */
+  .hotspot-qr {
+    display: none !important;
+  }
+
+  /* Mostrar botón acorde al diseño para mesa de regalos */
+  .mobile-registry-cta {
+    display: flex !important;
   }
 
   .music-floating-btn {
@@ -1332,9 +1402,22 @@ html, body {
     z-index: 100;
   }
 
+  /* Sobre simétrico y perfectamente alineado en móviles */
+  .envelope-wrapper {
+    max-width: 340px;
+    width: 95%;
+  }
+
   .envelope {
-    width: 290px;
-    height: 200px;
+    width: 320px;
+    height: 220px;
+    transform-origin: center center;
+  }
+}
+
+@media (max-width: 340px) {
+  .envelope {
+    transform: scale(0.9);
   }
 }
 
