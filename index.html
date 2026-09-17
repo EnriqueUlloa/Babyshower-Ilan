@@ -78,13 +78,16 @@
     <!-- THE EXACT INVITATION CARD -->
     <div class="card-aspect-wrapper" id="invitation-card">
       
-      <!-- Base exact artwork -->
-      <img 
-        src="assets/invitacion_base_hd.png" 
-        alt="Invitación Baby Shower Ilán" 
-        class="base-artwork-img"
-        id="base-img"
-      />
+      <!-- Base artwork: responsive source for mobile (1570h full screen) and desktop (1024h) -->
+      <picture class="base-artwork-picture">
+        <source media="(max-width: 768px)" srcset="assets/invitacion_base_mobile.png" />
+        <img 
+          src="assets/invitacion_base_hd.png" 
+          alt="Invitación Baby Shower Ilán" 
+          class="base-artwork-img"
+          id="base-img"
+        />
+      </picture>
 
       <!-- ANIMATED OVERLAYS & AMBIENT EFFECTS -->
       

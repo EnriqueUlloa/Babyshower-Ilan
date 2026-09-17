@@ -326,6 +326,16 @@ html, body {
 }
 
 /* The Base Artwork Image (Pristine Original Graphic Design) */
+.base-artwork-picture {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 2;
+  border-radius: 18px;
+}
+
 .base-artwork-img {
   position: absolute;
   inset: 0;
@@ -1355,7 +1365,7 @@ html, body {
     width: 100%;
     min-height: 100vh;
     min-height: 100dvh;
-    padding: 0 0 24px 0;
+    padding: 0;
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -1366,9 +1376,9 @@ html, body {
   }
 
   .card-aspect-wrapper {
-    width: 100%;
-    max-width: 500px;
-    aspect-ratio: 724 / 1024;
+    width: 100vw;
+    max-width: 540px;
+    aspect-ratio: 724 / 1570;
     border-radius: 0;
     border: none;
     box-shadow: none;
@@ -1377,11 +1387,41 @@ html, body {
     margin-top: 0;
   }
 
+  .base-artwork-picture {
+    border-radius: 0;
+  }
+
   .base-artwork-img {
     width: 100%;
     height: 100%;
     object-fit: contain;
     border-radius: 0;
+  }
+
+  /* Posicionamiento exacto de capas animadas y hotspots en lienzo móvil (1570h) */
+  .layer-bunny-stage {
+    top: 11.15%;
+    height: 19.17%;
+  }
+
+  .layer-banner-stage {
+    top: 44.27%;
+    height: 6.69%;
+  }
+
+  .hotspot-datetime {
+    top: 58.41%;
+    height: 2.48%;
+  }
+
+  .hotspot-location {
+    top: 60.96%;
+    height: 2.61%;
+  }
+
+  .hotspot-registry {
+    top: 68.8%;
+    height: 8.5%;
   }
 
   /* Ocultar QR en móviles */
@@ -1392,6 +1432,15 @@ html, body {
   /* Mostrar botón acorde al diseño para mesa de regalos */
   .mobile-registry-cta {
     display: flex !important;
+    top: 69.5%;
+    left: 60%;
+    width: 18.5%;
+    height: 7.8%;
+  }
+
+  .hotspot-rsvp {
+    top: 84.27%;
+    height: 6.00%;
   }
 
   .music-floating-btn {
